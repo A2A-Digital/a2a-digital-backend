@@ -12,7 +12,7 @@ var express = require('express'),
     app.use(bodyParser.json());
     var port = 4000;
     var receiver = 'pensereyotdom15@kit.edu.kh';
-    var pwd = 'ios10isusefull';
+    var pwd = 'password';
     app.get('/', function (req, res) {
       res.render('index');
     });
