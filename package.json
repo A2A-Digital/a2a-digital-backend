@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node index.js",
+    "server": "nodemon index.js --exec babel-node",
+    "heroku-postbuild": "npm install",
+    "start": "babel-node index.js",
     "dev:start": "clear; nodemon --exec babel-node index.js"
   },
   "keywords": [],
