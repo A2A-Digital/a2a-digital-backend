@@ -22,7 +22,11 @@
     "mongoose": "^5.9.2",
     "mongoose-unique-validator": "^2.0.3",
     "nodemailer": "^6.4.3",
-    "slugify": "^1.3.6"
+    "slugify": "^1.3.6",
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.8.4",
+    "babel-loader": "^8.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
