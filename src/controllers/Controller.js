@@ -98,7 +98,7 @@ class Controller {
         });
         let mailOptions = {
             from: process.env.EM_USER,
-            to: 'a2adigital@kit.edu.kh',
+            to: 'a2adigital-japan@kit.edu.kh',
             subject: req.body.message,
             text: req.body.message, // plain text body
             html: `<h3>Email: ${req.body.email}</h3> 
@@ -125,7 +125,50 @@ class Controller {
         });
 
     }
-  
-  }
+    async jobRecruitment(req, res){
+        let transporter = nodeMailer.createTransport({
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
+            auth: {
+                user: process.env.EM_USER,
+                pass: process.env.EM_PASS
+            }
+        });
+        let mailOptions = {
+            from: process.env.EM_USER,
+            to: 'a2adigital@kit.edu.kh',
+            subject: req.body.message,
+            text: req.body.message, // plain text body
+            html: `<h3>Email: ${req.body.email}</h3> 
+              <h3>FirstName: ${req.body.first_name}</h3> 
+              <h3>LastName: ${req.body.last_name}</h3>
+              <h3>Message: ${req.body.message}</h3>
+              `,
+            attachments: [{
+                filename: req.body.file
+            }]// html body
+        };
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                let status ={
+                    error: true,
+                    statusCode: 400,
+                    data: error.toString()
+                };
+                return res.status(status.statusCode).send(status);
+            }
+            console.log('Message %s sent: %s', info.messageId, info.response);
+            let status = {
+                error: false,
+                statusCode: 200,
+                data: 'Successfully'
+            };
+            return res.status(status.statusCode).send(status);
+        });
+
+    }
+
+}
   
   export default Controller;
