@@ -15,5 +15,5 @@ export default (app) => {
   //Email Routes
   app.post(`/api/send-email`, EmailController.sendMail);
   app.post(`/api/send-email-japan`, EmailController.sendMailJapan);
-  // app.post(`/api/jobrecruitment`, EmailController.jobRecruitment);
+  app.post(`/api/jobrecruitment`, EmailController.jobRecruitment);
 }
