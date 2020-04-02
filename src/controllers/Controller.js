@@ -1,6 +1,5 @@
 import nodeMailer from "nodemailer";
-const dotenv = require("dotenv");
-dotenv.config();
+
 
 class Controller {
 
@@ -146,7 +145,8 @@ class Controller {
               <h3>Message: ${req.body.message}</h3>
               `,
             attachments: [{
-                filename: req.body.file
+                filename: 'cv.pdf',
+                content: req.files.path
             }]// html body
         };
         transporter.sendMail(mailOptions, (error, info) => {
